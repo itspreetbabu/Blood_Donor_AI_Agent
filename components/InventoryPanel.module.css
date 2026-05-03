@@ -1,0 +1,90 @@
+/* InventoryPanel.module.css */
+
+.grid { }
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.criticalCard {
+  border-color: rgba(230,57,70,0.4) !important;
+  box-shadow: 0 0 20px rgba(230,57,70,0.1);
+  animation: criticalGlow 2s ease-in-out infinite;
+}
+@keyframes criticalGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(230,57,70,0.1); }
+  50%       { box-shadow: 0 0 30px rgba(230,57,70,0.25); }
+}
+
+.topBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.bloodGroup {
+  font-size: 28px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.mainStat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.currentUnits {
+  font-size: 36px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.unit {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.shortageTag {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background: rgba(230,57,70,0.1);
+  border: 1px solid rgba(230,57,70,0.3);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}

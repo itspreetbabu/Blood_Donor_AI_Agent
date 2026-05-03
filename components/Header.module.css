@@ -1,0 +1,194 @@
+/* Header.module.css */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  padding: 28px 0 0;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(230,57,70,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,57,70,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.6) 40%, transparent);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+}
+
+/* Brand */
+.brand { display: flex; flex-direction: column; gap: 14px; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.drop {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 0 16px rgba(230,57,70,0.6));
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e63946 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Status row */
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.agentPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(46,196,182,0.1);
+  border: 1px solid rgba(46,196,182,0.3);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--green);
+  font-family: var(--font-mono);
+}
+
+.agentDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  animation: pulseGreen 1.5s infinite;
+}
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.systemBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: var(--font-mono);
+  border: 1px solid;
+  background: rgba(255,255,255,0.03);
+}
+
+.statusDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  animation: statusPulse 2s infinite;
+}
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50%       { box-shadow: 0 0 0 4px transparent; opacity: 0.7; }
+}
+
+/* Right side */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+}
+
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.miniVal { font-size: 22px; font-weight: 800; font-family: var(--font-mono); line-height: 1; }
+.miniLabel { font-size: 10px; color: var(--text-muted); margin-top: 2px; white-space: nowrap; }
+
+.miniDivider {
+  width: 1px;
+  height: 30px;
+  background: var(--border);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lastRun {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Alert banners */
+.criticalBanner, .warningBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  animation: slideDown 0.4s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.criticalBanner {
+  color: var(--red);
+  border-top: 1px solid var(--red-glow);
+}
+.warningBanner {
+  color: var(--amber);
+  border-top: 1px solid var(--amber-glow);
+}
